@@ -30,6 +30,8 @@ class uchiwa::repo::apt {
         $release = $::uchiwa::repo_release
       }
 
+      include apt
+
       apt::source { 'uchiwa':
         ensure   => $ensure,
         before   => Package['uchiwa'],
@@ -44,6 +46,9 @@ class uchiwa::repo::apt {
         location => $url,
         release  => $release,
         repos    => $uchiwa::repo,
+      }
+      if $uchiwa::manage_package {
+        Class['apt::update'] -> Package[$uchiwa::package_name]
       }
 
     } else {
