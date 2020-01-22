@@ -19,7 +19,7 @@ class uchiwa::repo::apt {
       if $uchiwa::repo_source {
         $url = $uchiwa::repo_source
       } else {
-        $url = 'https://repositories.sensuapp.org/apt'
+        $url = 'https://eol-repositories.sensuapp.org/apt'
       }
 
       # ignoring the puppet-lint plugin because of a bug that warns on the next

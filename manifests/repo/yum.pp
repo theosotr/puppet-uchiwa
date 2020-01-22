@@ -13,8 +13,8 @@ class uchiwa::repo::yum {
       $url = $uchiwa::repo_source
     } else {
       $url = $uchiwa::repo ? {
-        'unstable'  => "https://repositories.sensuapp.org/yum-unstable/${::operatingsystemmajrelease}/\$basearch/",
-        default     => "https://repositories.sensuapp.org/yum/${::operatingsystemmajrelease}/\$basearch/"
+        'unstable'  => "https://eol-repositories.sensuapp.org/yum-unstable/${::operatingsystemmajrelease}/\$basearch/",
+        default     => "https://eol-repositories.sensuapp.org/yum/${::operatingsystemmajrelease}/\$basearch/"
       }
     }
 

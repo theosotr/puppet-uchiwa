@@ -54,11 +54,11 @@ describe 'uchiwa' do
           context 'default' do
             it { should contain_apt__source('uchiwa').with(
               :ensure   => 'present',
-              :location => 'https://repositories.sensuapp.org/apt',
+              :location => 'https://eol-repositories.sensuapp.org/apt',
               :release  => 'jessie',
               :repos    => 'main',
               :include  => { 'src' => false, 'deb' => true },
-              :key      => { 'id' => 'EE15CFF6AB6E4E290FDAB681A20F259AEB9C94BB', 'source' => 'https://repositories.sensuapp.org/apt/pubkey.gpg' },
+              :key      => { 'id' => 'EE15CFF6AB6E4E290FDAB681A20F259AEB9C94BB', 'source' => 'https://eol-repositories.sensuapp.org/apt/pubkey.gpg' },
               :before   => 'Package[uchiwa]'
             ) }
           end
@@ -102,7 +102,7 @@ describe 'uchiwa' do
 
             it { should_not contain_apt__key('uchiwa').with(
               :key         => '7580C77F',
-              :key_source  => 'https://repositories.sensuapp.org/apt/pubkey.gpg'
+              :key_source  => 'https://eol-repositories.sensuapp.org/apt/pubkey.gpg'
             ) }
 
             it { should contain_package('uchiwa').with(
@@ -122,7 +122,7 @@ describe 'uchiwa' do
         context 'default' do
           it { should contain_yumrepo('uchiwa').with(
             :enabled   => 1,
-            :baseurl   => 'https://repositories.sensuapp.org/yum/6/$basearch/',
+            :baseurl   => 'https://eol-repositories.sensuapp.org/yum/6/$basearch/',
             :gpgcheck  => 0,
             :before    => 'Package[uchiwa]'
           ) }
@@ -130,7 +130,7 @@ describe 'uchiwa' do
 
         context 'unstable repo' do
           let(:params) { { :repo => 'unstable' } }
-          it { should contain_yumrepo('uchiwa').with(:baseurl => 'https://repositories.sensuapp.org/yum-unstable/6/$basearch/' )}
+          it { should contain_yumrepo('uchiwa').with(:baseurl => 'https://eol-repositories.sensuapp.org/yum-unstable/6/$basearch/' )}
         end
 
         context 'override repo url' do

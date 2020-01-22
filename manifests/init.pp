@@ -44,7 +44,7 @@
 #
 #  [*repo_key_source*]
 #    String
-#    Default: https://repositories.sensuapp.org/apt/pubkey.gpg
+#    Default: https://eol-repositories.sensuapp.org/apt/pubkey.gpg
 #    GPG key for the repo we're installing
 #
 #  [*manage_package*]
